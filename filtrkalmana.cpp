@@ -20,13 +20,14 @@ class filtrkalmana {
             }
             else{
                 float x=ostatni_pomiar-wart;
-                if(x<0) x=-x;
+               
                 SPO=(SPO*ilosc+x*x)/(ilosc+1);
 
                 float estym_przew=estym;
                 float BLAD_przew=BLAD+SPR;
-                
-                float wzmocnienie=BLAD_przew/(BLAD_przew+SPR);
+                float wzmocnienie=9999999;
+                if(BLAD_przew+SPR!=0)
+                    wzmocnienie=BLAD_przew/(BLAD_przew+SPR);
 
                 estym=estym_przew+wzmocnienie*(wart-estym_przew);
                 BLAD=(1-wzmocnienie)*BLAD_przew;
@@ -47,10 +48,9 @@ int main(){
     int x=0;
     filtrkalmana *kalman=new filtrkalmana();
     
-    while(scanf("%.2f",f)==1)
+    while(std::cin>>f)
     {
-        printf("2%.2f\n",kalman->dodaj(f));
-
+        std::cout<<kalman->dodaj(f)<<"\n";
     }
     
 }
