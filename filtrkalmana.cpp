@@ -21,7 +21,7 @@ class filtrkalmana {
             else{
                 float x=ostatni_pomiar-wart;
                 if(x<0) x=-x;
-                SPO=(SPO*ilosc+x)/(ilosc+1);
+                SPO=(SPO*ilosc+x*x)/(ilosc+1);
 
                 float estym_przew=estym;
                 float BLAD_przew=BLAD+SPR;
@@ -32,7 +32,7 @@ class filtrkalmana {
                 BLAD=(1-wzmocnienie)*BLAD_przew;
 
                 float z=estym-estym_pop;
-                SPR=(SPR*ilosc+z)/(ilosc+1);
+                SPR=(SPR*ilosc+z*z)/(ilosc+1);
                 
             }
             estym_pop=estym;
@@ -46,18 +46,11 @@ int main(){
     float f,wyniki[3000];
     int x=0;
     filtrkalmana *kalman=new filtrkalmana();
-    while(scanf("%.4f",f))
+    
+    while(scanf("%.2f",f)==1)
     {
-        wyniki[x]=kalman->dodaj(f);
-        x++;
+        printf("2%.2f\n",kalman->dodaj(f));
+
     }
-    for(int j=0;j<10;j++){
-        filtrkalmana *kal=new filtrkalmana();
-        for(int i=0;i<x;i++){
-            wyniki[i]=kal->dodaj(wyniki[i]);
-        }
-    }
-    for(int i=0;i<x;i++){
-        printf("%.4f\n",wyniki[i]);
-    }
+    
 }
