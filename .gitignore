@@ -1,0 +1,6 @@
+MODULE.bazel.lock
+bazel-bin
+bazel-out
+bazel-apogeum
+bazel-testlogs
+.vscode
