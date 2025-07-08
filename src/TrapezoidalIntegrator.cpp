@@ -1,3 +1,5 @@
+// Copyright 2025 Jakub Nowak
+
 #include <TrapezoidalIntegrator.h>
 
 double TrapezoidalIntegrator::update(double x, double y)  {
@@ -6,9 +8,9 @@ double TrapezoidalIntegrator::update(double x, double y)  {
         double averageY = (previousY.value() + y) / 2.0;
         integralValue += averageY * dx;
     }
-    previousX = x; 
+    previousX = x;
     previousY = y;
-    return integralValue; 
+    return integralValue;
 }
 
 double TrapezoidalIntegrator::getIntegral() const {
