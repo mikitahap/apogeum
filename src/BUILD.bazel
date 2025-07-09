@@ -1,10 +1,3 @@
-
-cc_library(
-    name = "csvReader",
-    srcs = [],
-    hdrs = ["CsvReader.tpp","CsvReader.h", "CsvRow.tpp", "CsvRow.h"],
-)
-
 cc_binary(
     name = "filtrkalmana",
     srcs = ["filtrkalmana.cpp"]
