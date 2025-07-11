@@ -14,8 +14,6 @@ CsvReader<Types...>::CsvReader(const std::string &filename, bool hasHeader,
     throw std::runtime_error("Could not open file: " + filename);
   }
 
-  printf("Opened file: %s\n", filename.c_str());
-
   std::string line;
   bool skipedHeader = !hasHeader;
   while (std::getline(fileStream, line)) {
